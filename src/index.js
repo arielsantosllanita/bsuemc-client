@@ -4,10 +4,22 @@ import './index.css';
 import App from './App';
 import * as serviceWorkerRegistration from './serviceWorkerRegistration';
 import reportWebVitals from './reportWebVitals';
+import { BrowserRouter as Router } from 'react-router-dom';
+import { Provider } from 'react-redux'
+import store from './redux/store';
+import axios from 'axios';
 
-ReactDOM.render(
+// Configures global config for each request with axios
+axios.defaults.baseURL = (process.env.NODE_ENV === "production") ? "https://bsuemc-api.herokuapp.com" : "http://localhost:5000";
+axios.defaults.withCredentials = true;
+
+ReactDOM.render (
   <React.StrictMode>
-    <App />
+    <Provider store={store}>
+      <Router> 
+        <App />
+      </Router>
+    </Provider>
   </React.StrictMode>,
   document.getElementById('root')
 );
