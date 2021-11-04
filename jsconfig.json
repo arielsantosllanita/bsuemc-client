@@ -6,7 +6,9 @@
       "@constants/*": ["./constants/*"],
       "@utils/*": ["./utils/*"],
       "@components/*": ["./components/*"],
-      "@actions": ["./redux/rootActions.js"]
+      "@actions": ["./redux/rootActions.js"],
+      "@public/*": ["./pages/public/*"],
+      "@private/*": ["./pages/private/*"]
     }
   },
   "include": ["./src"]
