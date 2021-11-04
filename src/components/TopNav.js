@@ -33,7 +33,7 @@ export default function TopNav() {
     <nav
       className={`w-full sticky top-0 h-12 z-10 theme-transition
        ${((onLandingPage && !scrollDown) || (openMenu)) ? "bg-transparent"
-        : ((onLandingPage && scrollDown) || (!onLandingPage)) && "bg-gray-100 dark:bg-gray-600 shadow-md"}`}
+          : ((onLandingPage && scrollDown) || (!onLandingPage)) && "bg-gray-100 dark:bg-gray-600 shadow-md"}`}
     >
       {openMenu && <SideNav navRef={sideNavRef} />}
       <div className="container m-auto px-7 md:px-16">
@@ -41,7 +41,8 @@ export default function TopNav() {
           <Link to={ROUTES.LANDING_PAGE}>
             <div className={`${openMenu && "invisible"} flex flex-row gap-x-2 md:gap-x-4`}>
               <img src="/img/brand_logo_35x35.png" className="w-8" alt="Brand logo" />
-              <h2 className="font-medium font-sans text-black dark:text-white">
+              <h2 className="font-medium font-sans self-center
+               text-black dark:text-white">
                 BSU EMC
               </h2>
             </div>
@@ -84,19 +85,22 @@ const SideNav = ({ navRef }) => {
       initial={{ x: -20 }}
       animate={{ x: 0 }}
       ref={navRef}
-      className="w-1/2 sm:w-5/12 text-left absolute left-0 top-0 z-10
-       bg-gray-200 dark:bg-gray-700 shadow-lg"
+      className="w-1/2 sm:w-5/12 absolute left-0 top-0
+       text-left z-10 bg-gray-200 dark:bg-gray-700 shadow-lg"
     >
       <Link to={ROUTES.LANDING_PAGE}>
-        <div className="flex flex-row gap-x-2 py-2 pl-3 pr-7 shadow-md">
+        <div className="flex flex-row gap-x-2 h-12 py-2 pl-3 pr-7 shadow-md">
           <img src="/img/brand_logo_35x35.png" className="w-8" alt="Brand logo" />
-          <h2 className="font-medium font-sans text-black dark:text-white">
+          <h2 className="font-medium font-sans self-center
+           text-black dark:text-white">
             BSU EMC
           </h2>
         </div>
       </Link>
 
-      <ul className="h-screen pt-3 pb-5 pl-5 bg-gray-100 dark:bg-gray-600 relative">
+      <ul style={{ height: 'calc(100vh - 48px)' }}
+        className="pt-5 pl-5 bg-gray-100 dark:bg-gray-600"
+      >
         <li className="dark:text-white pb-2 flex flex-row gap-x-4">
           <MdHome className="self-center" />
           <Link to={ROUTES.LANDING_PAGE}>Home</Link>

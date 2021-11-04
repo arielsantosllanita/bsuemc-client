@@ -14,9 +14,9 @@ export default function Header() {
             Uplifting the standard of living and quality of life for everyone
           </h2>
           <Link to={ROUTES.LOGIN}>
-            <button className="py-3 px-11 mt-9 bg-gray-100 rounded-3xl shadow-xl 
+            <button className="py-3 px-11 mt-9 bg-gray-100 rounded-3xl shadow-lg hover:shadow-xl 
             hover:bg-gray-200 focus:outline-none focus:ring-2 focus:ring-gray-300 focus:ring-opacity-75">
-              <span className="text-black font-normal text-lg">
+              <span className="font-medium text-black text-lg">
                 Get Started
               </span>
             </button>

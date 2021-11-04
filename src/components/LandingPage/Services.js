@@ -31,7 +31,7 @@ const ServicesContainer = ({ img, description }) => {
   const altText = img.split("/")[2].split(".")[0];
 
   return (
-    <div className="w-full md:w-2/3 bg-gray-100 dark:bg-gray-600
+    <div className="w-full md:w-2/3 div-container
      mx-auto mt-10 theme-transition rounded-xl shadow-lg px-5 sm:px-10 pb-10"
     >
       <img
