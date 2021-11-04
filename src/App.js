@@ -4,6 +4,7 @@ import PublicRoutes from './routes/Public';
 import PrivateRoutes from './routes/Private';
 import PageNotFound from './pages/PageNotFound';
 import * as ROUTES from './constants/routes';
+import ProtectedRoute from './helpers/ProtectedRoute';
 
 export default function App() {
   const location = useLocation();
@@ -12,9 +13,11 @@ export default function App() {
     <div className="bg-white dark:bg-gray-700 theme-transition">
       <Switch location={location}>
         <Route path={ROUTES.PUBLIC_ENDPOINT} exact component={PublicRoutes} />
-        <Route path={ROUTES.PRIVATE_ENDPOINT} exact component={PrivateRoutes} />
+        <ProtectedRoute path={ROUTES.PRIVATE_ENDPOINT}>
+          <PrivateRoutes />
+        </ProtectedRoute>
         <Route component={PageNotFound} />
       </Switch>
     </div>
-    );
+  );
 }
