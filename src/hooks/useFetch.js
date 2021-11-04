@@ -7,9 +7,9 @@ import { useEffect, useState } from "react";
  * @param {String} method The method of the request e.g. 'GET','PUT', 'POST', 'DELETE'. Must be in uppercase.
  */
 const useFetch = (url, method) => {
-  const [isLoading, setIsLoading] = useState(true);
+  const [fetching, setFetching] = useState(true);
   const [response, setResponse] = useState(null);
-  const [isFailure, setIsFailure] = useState(null);
+  const [failed, setFailed] = useState(null);
 
   useEffect(() => {
     const source = axios.CancelToken.source();
@@ -19,21 +19,21 @@ const useFetch = (url, method) => {
           cancelToken: source.token,
           method: method
         })
-        setIsLoading(false);
+        setFetching(false);
         setResponse(res);
       } catch (err) {
-        setIsLoading(false);
-        setIsFailure(err.response);
+        setFetching(false);
+        setFailed(err.response);
       }
     })()
 
     return () => {
       source.cancel();
-      setIsLoading(false);
+      setFetching(false);
     }
   }, [url, method])
 
-  return { isLoading, response, isFailure }
+  return { fetching, response, failed }
 }
 
 export default useFetch;

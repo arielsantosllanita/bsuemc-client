@@ -9,16 +9,18 @@ const useImageUpload = (image) => {
 
   useEffect(() => {
     (async () => {
-      try {
-        const convertedImage = await Convert(image);
-        setImgUrl(convertedImage ? convertedImage : null);
-      } catch (err) {
-        setImgUrl(null);
+      if (image) {
+        try {
+          const convertedImage = await Convert(image);
+          setImgUrl(convertedImage ? convertedImage : null);
+        } catch (err) {
+          setImgUrl(null);
+        }
       }
     })()
   }, [image])
 
-  return { imgUrl }
+  return imgUrl
 }
 
 export default useImageUpload;

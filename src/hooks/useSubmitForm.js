@@ -10,19 +10,16 @@ import useFetch from './useFetch';
  */
 const useSubmitForm = (url, method, includeFiles = null) => {
   // Retrieve csrf token protection from server
-  useFetch('/', 'GET');
+  useFetch('/xsrf', 'GET');
+
   // Memoize each value to prevent infinite loop to useEffect hook
   const source = useMemo(() => (axios.CancelToken.source()), []);
-  const initialState = useMemo(() => ({
-    loading: false,
-    response: null,
-    failure: null,
-    toggleAlert: false
-  }), []);
+  const initialState = useMemo(() => ({ loading: false, response: null, failure: null, toggleAlert: false }), []);
+
   // State of the form being sent
   const [formState, setFormState] = useState(initialState);
 
-  // Function that submits the data (to backend) inside the form
+  // Function that submits the data inside the form (to backend)
   const submit = async (data) => {
     try {
       const response = await axios(url, {
@@ -39,23 +36,23 @@ const useSubmitForm = (url, method, includeFiles = null) => {
   // Function that retrieves data inside the form
   const submitHandler = (e) => {
     e.preventDefault();
-    // Elements that holds data
-    const formElements = ['INPUT', 'SELECT'];
-    // Stores data inside object
-    const data = {};
     setFormState({ ...initialState, loading: true });
+    const neededElements = ['INPUT', 'SELECT'];
 
-    // Loop through the form's children and get the data needed
-    for (let index = 0; index < e.target.length; index++) {
-      if (formElements.some((v) => v === e.target[index].nodeName)) {
-        let name = e.target[index].name;
-        let value = e.target[index].value;
-        if ((name === '' || name == null) || (value === '' || value == null)) continue;
-        data[name] = value;
+    // Get all needed elements from the form and extract the data
+    const data = Array.from(e.target).reduce((accumulator, current) => {
+      let validElement = neededElements.some(element => element === current.nodeName);
+      if (validElement) {
+        // Dont accept empty names or values
+        if (!current.name || !current.value) return accumulator;
+        return { ...accumulator, [current.name]: current.value }
+      } else {
+        return accumulator
       }
-    }
+    }, {});
+
     // If there are files indluded, append them
-    submit((includeFiles) ? { ...data, ...includeFiles } : data)
+    submit(includeFiles ? { ...data, ...includeFiles } : data);
   }
 
   useEffect(() => {
@@ -65,7 +62,7 @@ const useSubmitForm = (url, method, includeFiles = null) => {
     }
   }, [source, initialState])
 
-  return { formState, submitHandler }
+  return [formState, submitHandler]
 }
 
 export default useSubmitForm
