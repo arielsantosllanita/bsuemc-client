@@ -9,8 +9,8 @@ import { Provider } from 'react-redux'
 import store from './redux/store';
 import axios from 'axios';
 
-// Configures global config for each request with axios
-axios.defaults.baseURL = (process.env.NODE_ENV === "production") ? "https://bsuemc-api.herokuapp.com" : "http://localhost:5000";
+// Configure axios global config
+axios.defaults.baseURL = (process.env.NODE_ENV === "production") ? "https://bsuemc-api.herokuapp.com" : "http://localhost:8080";
 axios.defaults.withCredentials = true;
 
 ReactDOM.render (
