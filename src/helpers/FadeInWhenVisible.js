@@ -8,7 +8,7 @@ import { useEffect } from 'react';
  * @param {Object} initial initial animation
  * @param {Object} animate animate from initial propert
  */
- export default function FadeInWhenVisible({ children, initial, animate }) {
+export default function FadeInWhenVisible({ children, initial, animate }) {
   const controls = useAnimation();
   const { ref, inView } = useInView();
 
@@ -17,13 +17,13 @@ import { useEffect } from 'react';
     inView ? controls.start("anim") : controls.stop()
     return () => { controls.stop() }
   }, [controls, inView])
-  
+
   return (
     <motion.div
       ref={ref}
       initial="init"
       animate={controls}
-      transition={{ duration: 0.5, delay: 0.5 }}
+      transition={{ duration: 0.5, delay: 0.3 }}
       variants={{ init: initial, anim: animate }}
     >
       {children}
