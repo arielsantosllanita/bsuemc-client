@@ -9,7 +9,10 @@ const signOutUser = () => {
 
 export const logout = () => {
   return (dispatch) => {
-    axios.put('/auth/logout').then(() => dispatch(signOutUser()))
+    axios
+      .put('/auth/logout')
+      .then(() => dispatch(signOutUser()))
+      .catch((err) => console.log("signout err", err))
   }
 }
 
