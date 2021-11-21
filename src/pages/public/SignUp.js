@@ -66,23 +66,25 @@ export default function SignUp() {
   }, [])
 
   return (
-    <div className="h-auto md:h-screen overflow-y-auto pb-6">
+    <>
       <TopNav />
-      <main className="mt-20 mx-auto w-2/3 sm:w-1/2 md:w-8/12 lg:w-1/2
+      <div className="h-auto md:h-screen overflow-y-auto pb-6">
+        <main className="mt-20 mx-auto w-2/3 sm:w-1/2 md:w-8/12 lg:w-1/2
        p-6 shadow-md rounded-lg dark:bg-gray-600">
 
-        {imgUrl && <img src={imgUrl} className="rounded-full h-32 w-32 mx-auto -mt-14" alt="Profile preview" />}
-        <Alert {...alertProperties} />
-        <form onSubmit={verifySubmit} ref={formRef}>
-          <Inputs
-            error={error}
-            loading={formState.loading}
-            setProfilePhoto={setProfilePhoto}
-          />
-        </form>
+          {imgUrl && <img src={imgUrl} className="rounded-full h-32 w-32 mx-auto -mt-14" alt="Profile preview" />}
+          <Alert {...alertProperties} />
+          <form onSubmit={verifySubmit} ref={formRef}>
+            <Inputs
+              error={error}
+              loading={formState.loading}
+              setProfilePhoto={setProfilePhoto}
+            />
+          </form>
 
-      </main>
-    </div>
+        </main>
+      </div>
+    </>
   )
 }
 
@@ -109,7 +111,7 @@ const Inputs = ({ loading, setProfilePhoto, error }) => {
 
       <div className="mb-2 grid grid-cols-1 gap-y-2">
         <label htmlFor="address" className="text">Address</label>
-        <input type="text" name="address" className="input" id="address" required />
+        <input type="text" name="address" className="input" placeholder="Street address, City name..." id="address" required />
       </div>
 
       <div className="mb-2 grid grid-cols-1 md:grid-cols-3 gap-y-3 gap-x-2">
