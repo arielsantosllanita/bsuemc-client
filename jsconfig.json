@@ -5,10 +5,11 @@
       "@hooks/*": ["./hooks/*"],
       "@constants/*": ["./constants/*"],
       "@utils/*": ["./utils/*"],
+      "@helpers/*": ["./helpers/*"],
       "@components/*": ["./components/*"],
       "@actions": ["./redux/rootActions.js"],
       "@public/*": ["./pages/public/*"],
-      "@private/*": ["./pages/private/*"]
+      "@private/*": ["./pages/private/*" ]
     }
   },
   "include": ["./src"]
