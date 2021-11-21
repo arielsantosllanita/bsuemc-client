@@ -23,7 +23,7 @@ export default function Reset() {
             <label htmlFor="email" className="text">Email</label>
             <input type="email" name="email" id="email" className="input" required />
             <small className="text -mt-1 text-center font-thin text-xs">
-              A confirmation link will be send to your email
+              To help you secure your account, we will send a link to your email to verify this action.
             </small>
           </div>
           <button className="btn btn-primary w-full" disabled={formState.loading}>
