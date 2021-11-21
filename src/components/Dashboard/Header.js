@@ -9,7 +9,9 @@ export default function Header({ openMenu, setOpenMenu }) {
 
   return (
     <header
-      className="h-14 w-full sticky top-0 shadow-md
+      // ! Be careful when changing the height of this component
+      // The height of this component affects the height of SideNav
+      className="h-14 w-full sticky top-0 shadow-md z-50
      bg-gray-100 dark:bg-gray-600 flex justify-between lg:justify-end px-7"
     >
       {/* Hamburger menu */}

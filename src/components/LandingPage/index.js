@@ -2,7 +2,7 @@ import Content from "./Content";
 import Header from "./Header";
 import Footer from './Footer';
 import Services from './Services';
-import FadeInWhenVisible from "helpers/FadeInWhenVisible";
+import FadeInWhenVisible from "@helpers/FadeInWhenVisible";
 
 export default function Index() {
   return (

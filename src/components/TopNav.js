@@ -32,34 +32,31 @@ export default function TopNav() {
   return (
     <nav
       className={`w-full sticky top-0 h-12 z-10 theme-transition
-       ${((onLandingPage && !scrollDown) || (openMenu)) ? "bg-transparent"
-          : ((onLandingPage && scrollDown) || (!onLandingPage)) && "bg-gray-100 dark:bg-gray-600 shadow-md"}`}
+       ${((onLandingPage && scrollDown) || (!onLandingPage) || (openMenu))
+          ? "bg-gray-100 dark:bg-gray-600 shadow-md"
+          : ((onLandingPage && !scrollDown)) && "bg-transparent"
+        }`}
     >
-      {openMenu && <SideNav navRef={sideNavRef} />}
       <div className="container m-auto px-7 md:px-16">
         <div className="grid grid-cols-2 py-2">
-          <Link to={ROUTES.LANDING_PAGE}>
-            <div className={`${openMenu && "invisible"} flex flex-row gap-x-2 md:gap-x-4`}>
-              <img src="/img/brand_logo_35x35.png" className="w-8" alt="Brand logo" />
-              <h2 className="font-medium font-sans self-center
-               text-black dark:text-white">
-                BSU EMC
-              </h2>
-            </div>
-          </Link>
+          <div className="flex flex-grow-0">
+            <Link to={ROUTES.LANDING_PAGE}>
+              <div className="flex flex-row gap-x-2 md:gap-x-4">
+                <img src="/img/brand_logo_35x35.png" className="w-8" alt="Brand logo" />
+                <h2 className="font-medium font-sans self-center
+                text-black dark:text-white">
+                  BSU EMC
+                </h2>
+              </div>
+            </Link>
+          </div>
 
           <ul className="flex flex-row self-center gap-x-3 md:gap-x-9 justify-end">
-            <li
-              onClick={themeHandler}
-              className="cursor-pointer flex self-center"
-            >
+            <li className="cursor-pointer flex self-center" onClick={themeHandler}>
               {darktheme ? <MdDarkMode className="w-8 h-5 fill-current text-white" />
                 : <MdLightMode className="w-8 h-5" />}
             </li>
-            <li
-              onClick={setOpenMenu}
-              className="md:hidden cursor-pointer flex self-center"
-            >
+            <li className="md:hidden cursor-pointer flex self-center" onClick={setOpenMenu}>
               {openMenu ? <MdClose className="w-8 h-6 fill-current dark:text-white" />
                 : <MdMenu className="w-8 h-6 fill-current dark:text-white" />}
             </li>
@@ -73,8 +70,10 @@ export default function TopNav() {
               <Link to={ROUTES.SIGN_UP}>Sign up</Link>
             </li>
           </ul>
+
         </div>
       </div>
+      {openMenu && <SideNav navRef={sideNavRef} />}
     </nav>
   )
 }
@@ -85,18 +84,9 @@ const SideNav = ({ navRef }) => {
       initial={{ x: -20 }}
       animate={{ x: 0 }}
       ref={navRef}
-      className="w-1/2 sm:w-5/12 absolute left-0 top-0
+      className="w-64 fixed left-0 top-12
        text-left z-10 bg-gray-200 dark:bg-gray-700 shadow-lg"
     >
-      <Link to={ROUTES.LANDING_PAGE}>
-        <div className="flex flex-row gap-x-2 h-12 py-2 pl-3 pr-7 shadow-md">
-          <img src="/img/brand_logo_35x35.png" className="w-8" alt="Brand logo" />
-          <h2 className="font-medium font-sans self-center
-           text-black dark:text-white">
-            BSU EMC
-          </h2>
-        </div>
-      </Link>
 
       <ul style={{ height: 'calc(100vh - 48px)' }}
         className="pt-5 pl-5 bg-gray-100 dark:bg-gray-600"

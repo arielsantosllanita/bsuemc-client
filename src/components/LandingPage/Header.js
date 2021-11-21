@@ -1,5 +1,5 @@
 import { Link } from 'react-router-dom';
-import WaveDown from '../WaveDown';
+import WaveDown from './WaveDown';
 import * as ROUTES from '@constants/routes';
 
 export default function Header() {
@@ -26,9 +26,7 @@ export default function Header() {
           <img src="/img/hero_image.svg" alt="Hero" />
         </div>
       </div>
-      <WaveDown
-        classes="-mt-4 md:-mt-14 lg:-mt-16 transform-none cursor-auto"
-      />
+      <WaveDown classes="-mt-4 md:-mt-14 lg:-mt-16 transform-none cursor-auto" />
     </header>
   )
 }

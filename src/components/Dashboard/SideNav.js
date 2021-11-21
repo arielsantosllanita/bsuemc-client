@@ -4,7 +4,7 @@ import {
   MdAnalytics,
   MdHome,
   MdPayment,
-  MdQuestionAnswer
+  MdQuestionAnswer,
 } from 'react-icons/md';
 
 export default function SideNav() {
@@ -14,7 +14,7 @@ export default function SideNav() {
         <li>
           <Link to={ROUTES.DASHBOARD}>
             <div className="flex gap-x-3">
-              <MdHome className="w-8 h-6 fill-current dark:text-white" />
+              <MdHome className="self-center fill-current dark:text-white" />
               <span className="text flex-grow">Home</span>
             </div>
           </Link>
@@ -22,7 +22,7 @@ export default function SideNav() {
         <li>
           <Link to={ROUTES.DASHBOARD_PAYMENTS}>
             <div className="flex gap-x-3">
-              <MdPayment className="w-8 h-6 fill-current dark:text-white" />
+              <MdPayment className="self-center fill-current dark:text-white" />
               <span className="text flex-grow">Payment</span>
             </div>
           </Link>
@@ -30,7 +30,7 @@ export default function SideNav() {
         <li>
           <Link to={ROUTES.DASHBOARD_REPORTS}>
             <div className="flex gap-x-3">
-              <MdAnalytics className="w-8 h-6 fill-current dark:text-white" />
+              <MdAnalytics className="self-center fill-current dark:text-white" />
               <span className="text flex-grow">Reports</span>
             </div>
           </Link>
@@ -38,7 +38,7 @@ export default function SideNav() {
         <li>
           <Link to={ROUTES.DASHBOARD_FAQ}>
             <div className="flex gap-x-3">
-              <MdQuestionAnswer className="w-8 h-6 fill-current dark:text-white" />
+              <MdQuestionAnswer className="self-center fill-current dark:text-white" />
               <span className="text flex-grow">FAQS</span>
             </div>
           </Link>
