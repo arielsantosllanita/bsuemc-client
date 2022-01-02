@@ -1,70 +1,61 @@
-import useIterator from "@hooks/useIterator";
-import { MdKeyboardArrowLeft, MdKeyboardArrowRight } from 'react-icons/md';
+import { Carousel } from "react-responsive-carousel";
 
 export default function Services() {
-  const [properties, prev, next] = useIterator(slides);
-
   return (
-    <div className="w-3/4 mx-auto mt-24 relative">
-      <h1 className="text-center text-3xl dark:text-gray-50">
+    <>
+      <h3 className="dark:text-gray-50 text-center text-4xl mt-12">
         Services we offer
-      </h1>
-      <button onClick={prev} className="absolute -left-5 md:left-0 top-64 md:top-1/2">
-        <MdKeyboardArrowLeft
-          className="w-20 h-16 fill-current text-gray-700 dark:text-white"
-        />
-      </button>
-
-      <ServicesContainer {...properties} />
-
-      <button onClick={next} className="absolute -right-5 md:right-0 top-64 md:top-1/2">
-        <MdKeyboardArrowRight
-          className="w-20 h-16 fill-current text-gray-700 dark:text-white"
-        />
-      </button>
-    </div>
+      </h3>
+      
+      <Carousel
+        infiniteLoop={true}
+        autoPlay={true}
+        showThumbs={false}
+        className="w-full md:w-2/3 div-container mx-auto mt-9 md:rounded-xl shadow-lg pb-4"
+      >
+        <div>
+          <img className="max-h-60 md:max-h-72 p-5 mx-auto" src="/img/rice_loan.svg" alt="Rice Loan" />
+          <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
+            magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+          </p>
+        </div>
+        <div>
+          <img className="max-h-60 md:max-h-72 p-5 mx-auto" src="/img/compassionate_loan.svg" alt="Compassionate Loan" />
+          <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
+            magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+          </p>
+        </div>
+        <div>
+          <img className="max-h-60 md:max-h-72 p-5 mx-auto" src="/img/emergency_loan.svg" alt="Emergency Loan" />
+          <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
+            magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+          </p>
+        </div>
+        <div>
+          <img className="max-h-60 md:max-h-72 p-5 mx-auto" src="/img/gadget_loan.svg" alt="Gadget Loan" />
+          <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
+            magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+          </p>
+        </div>
+        <div>
+          <img className="max-h-60 md:max-h-72 p-5 mx-auto" src="/img/medical_loan.svg" alt="Medical Loan" />
+          <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
+            magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+          </p>
+        </div>
+        <div>
+          <img className="max-h-60 md:max-h-72 p-5 mx-auto" src="/img/salary_loan.svg" alt="Salary Loan" />
+          <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
+            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
+            magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+          </p>
+        </div>
+      </Carousel>
+    </>
   )
 }
-
-// Container for each slides inside the carousel
-const ServicesContainer = ({ img, description }) => {
-  const altText = img.split("/")[2].split(".")[0];
-
-  return (
-    <div className="w-full md:w-2/3 div-container
-     mx-auto mt-10 theme-transition rounded-xl shadow-lg px-5 sm:px-10 pb-10"
-    >
-      <img
-        src={img}
-        alt={altText}
-        className="md:max-h-72 p-5 mx-auto"
-      />
-      <p className="dark:text-gray-50 text-justify">
-        {description}
-      </p>
-    </div>
-  )
-}
-
-// Slides properties
-const slides = [
-  {
-    img: "/img/rice_loan.svg",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus."
-  }, {
-    img: "/img/compassionate_loan.svg",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus."
-  }, {
-    img: "/img/emergency_loan.svg",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus."
-  }, {
-    img: "/img/gadget_loan.svg",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus."
-  }, {
-    img: "/img/medical_loan.svg",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus."
-  }, {
-    img: "/img/salary_loan.svg",
-    description: "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus."
-  }
-];
