@@ -18,6 +18,7 @@ export default function Services() {
           <p className="dark:text-gray-50 text-justify px-5 sm:px-10">
             Lorem, ipsum dolor sit amet consectetur adipisicing elit. Voluptatum magni cumque harum doloremque quam perferendis 
             magnam quia minima commodi provident recusandae libero id mollitia, fuga nobis voluptas aliquid nihil voluptatibus.
+            Something about the given scenarios which i don't really about this person.
           </p>
         </div>
         <div>

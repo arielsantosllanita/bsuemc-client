@@ -21,3 +21,12 @@
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
+
+# Backup branches
+dev.bundle
+main.bundle
+
+# Brand logo
+logo.png
+
+# pwa-asset-generator logo.png icons -i ./index.html -m ./manifest.json -o false -b "rgb(72, 72, 72)" -t png -w true -a "%PUBLIC_URL%"

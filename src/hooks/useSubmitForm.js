@@ -18,7 +18,7 @@ const useSubmitForm = (url, method, includeFiles = null) => {
 
   // State of the form being sent
   const [formState, setFormState] = useState(initialState);
-
+  
   // Function that submits the data inside the form (to backend)
   const submit = async (data) => {
     try {

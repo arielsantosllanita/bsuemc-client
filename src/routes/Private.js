@@ -3,6 +3,7 @@ import Home from '@private/Home';
 import Faqs from '@private/Faqs';
 import Payments from '@private/Payments';
 import Reports from '@private/Reports';
+import Settings from '@private/Settings';
 import { Switch, Route } from 'react-router-dom';
 import * as ROUTES from '@constants/routes';
 // import Spinner from '@components/Spinner';
@@ -15,6 +16,7 @@ export default function Private() {
   // const Payments = lazy(() => import('@private/Payments'));
   // const Reports = lazy(() => import('@private/Reports'));
 
+  // TODO: Find a way to utilize lazy loading without glitch
   return (
     // <Suspense fallback={<Spinner />}>
     <Dashboard>
@@ -23,6 +25,7 @@ export default function Private() {
         <Route path={ROUTES.DASHBOARD_FAQ} component={Faqs} />
         <Route path={ROUTES.DASHBOARD_PAYMENTS} component={Payments} />
         <Route path={ROUTES.DASHBOARD_REPORTS} component={Reports} />
+        <Route path={ROUTES.DASHBOARD_SETTINGS} component={Settings} />
       </Switch>
     </Dashboard>
     // </Suspense>
